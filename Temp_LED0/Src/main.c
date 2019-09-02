@@ -20,6 +20,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -66,7 +67,8 @@ void SystemClock_Config(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
+	uint8_t temp[] = "study cube for stm32f103 \r\n";
+	uint8_t temp_lenth = sizeof temp;
   /* USER CODE END 1 */
   
 
@@ -88,6 +90,7 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
   
   /* USER CODE END 2 */
@@ -99,6 +102,8 @@ int main(void)
 
 	  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_8);
 	  HAL_Delay(1000);
+
+	  HAL_UART_Transmit(&huart1, temp, temp_lenth, 100);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
