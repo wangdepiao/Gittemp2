@@ -260,4 +260,3 @@ paket-files/
 __pycache__/
 *.pyc
 
-/Temp_LED0/MDK-ARM/Temp_LED0
