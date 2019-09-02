@@ -25,7 +25,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "IPS.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -69,6 +69,7 @@ int main(void)
   /* USER CODE BEGIN 1 */
 	uint8_t temp[] = "study cube for stm32f103 \r\n";
 	uint8_t temp_lenth = sizeof temp;
+	u8 x = 0, y = 0;
   /* USER CODE END 1 */
   
 
@@ -93,6 +94,10 @@ int main(void)
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
   
+  Lcd_Init();			 // 初始化OLED  
+  LCD_Clear(BLACK);
+  BACK_COLOR = BLACK;
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -103,6 +108,15 @@ int main(void)
 	  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_8);
 
 	  HAL_UART_Transmit(&huart1, temp, temp_lenth, 100);
+
+	  /* 字体移动 */
+	  for (y = 0; y < 220; y = y + 3)
+	  {
+		  LCD_ShowString(0, y, "Study STM32F103:", GREEN);
+	  }
+	  LCD_ShowString(0, 220, "                ", GREEN);
+
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
