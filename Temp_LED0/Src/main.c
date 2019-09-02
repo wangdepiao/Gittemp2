@@ -91,7 +91,7 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_USART1_UART_Init();
-  /* USER CODE BEGIN 2 */
+  /* USER CODE BEGIN 2 */ 
   
   /* USER CODE END 2 */
 
@@ -100,8 +100,8 @@ int main(void)
   while (1)
   {
 
-// 	  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_8);
-// 	  HAL_Delay(1000);
+	  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_8);
+	  HAL_Delay(1000);
 
 	  HAL_UART_Transmit(&huart1, temp, temp_lenth, 100);
     /* USER CODE END WHILE */
