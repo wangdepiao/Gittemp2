@@ -6,6 +6,8 @@
 *.user
 *.userosscache
 *.sln.docstates
+*.o
+*.axf
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -260,12 +262,3 @@ paket-files/
 __pycache__/
 *.pyc
 
-/.vs
-/.vscode
-/MDK-ARM/DebugConfig
-/MDK-ARM/TiltDetection
-/MDK-ARM/TiltDetection.uvguix.*
-/MDK-ARM/startup_stm32f103xb.lst
-/MDK-ARM/JLinkSettings.ini
-/MDK-ARM/JLinkLog.txt
-/MDK-ARM/EventRecorderStub.scvd
