@@ -27,7 +27,14 @@ Project File Date:  09/02/2019
 <h2>Output:</h2>
 *** Using Compiler 'V5.05 update 1 (build 106)', folder: 'D:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Temp_LED0'
-"Temp_LED0\Temp_LED0.axf" - 0 Error(s), 0 Warning(s).
+compiling main.c...
+../Src/main.c(73): warning:  #177-D: variable "x" was declared but never referenced
+  	u8 x = 0, y = 0;
+../Src/main.c: 1 warning, 0 errors
+linking...
+Program Size: Code=7420 RO-data=5080 RW-data=884 ZI-data=1092  
+FromELF: creating hex file...
+"Temp_LED0\Temp_LED0.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 
