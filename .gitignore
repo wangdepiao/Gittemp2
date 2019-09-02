@@ -260,6 +260,12 @@ paket-files/
 __pycache__/
 *.pyc
 
-# Temp_LED0
-*.o
-*.axf
+/.vs
+/.vscode
+/MDK-ARM/DebugConfig
+/MDK-ARM/TiltDetection
+/MDK-ARM/TiltDetection.uvguix.*
+/MDK-ARM/startup_stm32f103xb.lst
+/MDK-ARM/JLinkSettings.ini
+/MDK-ARM/JLinkLog.txt
+/MDK-ARM/EventRecorderStub.scvd
