@@ -58,18 +58,6 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define IPS_SDA_Pin GPIO_PIN_12
-#define IPS_SDA_GPIO_Port GPIOB
-#define IPS_SCL_Pin GPIO_PIN_13
-#define IPS_SCL_GPIO_Port GPIOB
-#define IPS_VCC_Pin GPIO_PIN_15
-#define IPS_VCC_GPIO_Port GPIOB
-#define IPS_DC_Pin GPIO_PIN_6
-#define IPS_DC_GPIO_Port GPIOC
-#define IPS_BLK_Pin GPIO_PIN_7
-#define IPS_BLK_GPIO_Port GPIOC
-#define IPS_RES_Pin GPIO_PIN_9
-#define IPS_RES_GPIO_Port GPIOC
 #define LED0_Pin GPIO_PIN_8
 #define LED0_GPIO_Port GPIOA
 /* USER CODE BEGIN Private defines */
