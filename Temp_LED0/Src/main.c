@@ -114,7 +114,8 @@ int main(void)
   while (1)
   {
 	  /* IO口操作 */
-	  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_8);
+	  HAL_GPIO_TogglePin(LED0_GPIO_Port, LED0_Pin);
+	  HAL_GPIO_TogglePin(LED1_GPIO_Port, LED1_Pin);
 
 	  /* 串口打印日志 */
 	  HAL_UART_Transmit(&huart1, temp, temp_lenth, 100);
