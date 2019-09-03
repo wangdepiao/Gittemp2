@@ -26,6 +26,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "lcd.h"
+#include "SEGGER_RTT.h"
+#include "SEGGER_RTT_Conf.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -80,9 +82,17 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-  Lcd_Init();			 // 初始化OLED  
+
+  /* Jlink RTT Viewer 初始化 */
+  SEGGER_RTT_Init();
+
+  /* IPS屏初始化 */
+  Lcd_Init();			 
   LCD_Clear(BLACK);
   BACK_COLOR = BLACK;
+
+ 
+
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -96,24 +106,53 @@ int main(void)
   MX_GPIO_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-  
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-
+	  /* IO口操作 */
 	  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_8);
 
+	  /* 串口打印日志 */
 	  HAL_UART_Transmit(&huart1, temp, temp_lenth, 100);
 
+	  /* IPS屏 */
 	  /* 字体移动 */
-	  for (y = 0; y < 220; y = y + 3)
-	  {
-		  LCD_ShowString(0, y, "Study STM32F103:", GREEN);
-	  }
-	  LCD_ShowString(0, 220, "                ", GREEN);
+// 	  for (y = 0; y < 220; y = y + 3)
+// 	  {
+// 		  LCD_ShowString(0, y, "Study STM32F103:", GREEN);
+// 	  }
+// 	  LCD_ShowString(0, 220, "                ", GREEN);
+
+	  /*显示*/
+	  /*多个终端*/
+	  SEGGER_RTT_TerminalOut(0, "STUDY123456789\r\n");
+	  HAL_Delay(100);
+	  // 选择不同的终端
+	  SEGGER_RTT_TerminalOut(1, "123456789\r\n");
+	  HAL_Delay(100);
+	  SEGGER_RTT_TerminalOut(2, "123456789\r\n");
+	  HAL_Delay(100);
+	  SEGGER_RTT_TerminalOut(3, "123456789\r\n");
+	  HAL_Delay(100);
+	  // 显示颜色， 颜色只能在在一个终端显示
+	  SEGGER_RTT_WriteString(0, RTT_CTRL_RESET"GREEN: "
+		                        RTT_CTRL_TEXT_GREEN"This text is GREEN."
+		                        RTT_CTRL_TEXT_BLACK""
+		                        RTT_CTRL_BG_GREEN"This background is GREEN. "
+		                        RTT_CTRL_RESET"Normal text again.\r\n");
+
+
+
+
+
+
+
+	  HAL_Delay(300);
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
