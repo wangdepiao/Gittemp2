@@ -69,8 +69,8 @@ void SystemClock_Config(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-	uint8_t temp[] = "study cube for stm32f103 \r\n";
-	uint8_t temp_lenth = sizeof temp;
+//	uint8_t temp[] = "study cube for stm32f103 \r\n";
+//	uint8_t temp_lenth = sizeof temp;
 
 	u8 x = 0, y = 0;
   /* USER CODE END 1 */
@@ -114,11 +114,11 @@ int main(void)
   while (1)
   {
 	  /* IO口操作 */
-	  HAL_GPIO_TogglePin(LED0_GPIO_Port, LED0_Pin);
-	  HAL_GPIO_TogglePin(LED1_GPIO_Port, LED1_Pin);
+// 	  HAL_GPIO_TogglePin(LED0_GPIO_Port, LED0_Pin);
+// 	  HAL_GPIO_TogglePin(LED1_GPIO_Port, LED1_Pin);
 
 	  /* 串口打印日志 */
-	  HAL_UART_Transmit(&huart1, temp, temp_lenth, 100);
+//	  HAL_UART_Transmit(&huart1, temp, temp_lenth, 100);
 
 	  /* IPS屏 */
 	  /* 字体移动 */
@@ -130,29 +130,34 @@ int main(void)
 
 	  /*显示*/
 	  /*多个终端*/
-	  SEGGER_RTT_TerminalOut(0, "STUDY123456789\r\n");
-	  HAL_Delay(100);
-	  // 选择不同的终端
-	  SEGGER_RTT_TerminalOut(1, "123456789\r\n");
-	  HAL_Delay(100);
-	  SEGGER_RTT_TerminalOut(2, "123456789\r\n");
-	  HAL_Delay(100);
-	  SEGGER_RTT_TerminalOut(3, "123456789\r\n");
-	  HAL_Delay(100);
-	  // 显示颜色， 颜色只能在在一个终端显示
-	  SEGGER_RTT_WriteString(0, RTT_CTRL_RESET"GREEN: "
-		                        RTT_CTRL_TEXT_GREEN"This text is GREEN."
-		                        RTT_CTRL_TEXT_BLACK""
-		                        RTT_CTRL_BG_GREEN"This background is GREEN. "
-		                        RTT_CTRL_RESET"Normal text again.\r\n");
+// 	  SEGGER_RTT_TerminalOut(0, "STUDY123456789\r\n");
+// 	  HAL_Delay(100);
+// 	  // 选择不同的终端
+// 	  SEGGER_RTT_TerminalOut(1, "123456789\r\n");
+// 	  HAL_Delay(100);
+// 	  SEGGER_RTT_TerminalOut(2, "123456789\r\n");
+// 	  HAL_Delay(100);
+// 	  SEGGER_RTT_TerminalOut(3, "123456789\r\n");
+// 	  HAL_Delay(100);
+// 	  // 显示颜色， 颜色只能在在一个终端显示
+// 	  SEGGER_RTT_WriteString(0, RTT_CTRL_RESET"GREEN: "
+// 		                        RTT_CTRL_TEXT_GREEN"This text is GREEN."
+// 		                        RTT_CTRL_TEXT_BLACK""
+// 		                        RTT_CTRL_BG_GREEN"This background is GREEN. "
+// 		                        RTT_CTRL_RESET"Normal text again.\r\n");
 
 
-
-
-
-
+      SEGGER_RTT_WriteString(0, RTT_CTRL_TEXT_GREEN"GREEN: "
+							    RTT_CTRL_TEXT_GREEN"study iwdg."
+							    RTT_CTRL_RESET"\r\n");
 
 	  HAL_Delay(300);
+
+
+
+
+
+	 
 
     /* USER CODE END WHILE */
 
